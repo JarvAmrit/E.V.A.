@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' ws://localhost:* 'unsafe-inline'; frame-src *; img-src * data:;" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E.V.A.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Title bar (drag region) ──────────────────────────────────────── -->
+  <header id="titlebar">
+    <div id="drag-region">
+      <span id="app-name">E.V.A. <span class="subtitle">Enhanced Voice Assistant</span></span>
+    </div>
+    <div id="window-controls">
+      <button id="btn-pin"  title="Toggle always-on-top">📌</button>
+      <button id="btn-min"  title="Minimise">－</button>
+      <button id="btn-close" title="Close">✕</button>
+    </div>
+  </header>
+
+  <!-- ── Status bar ────────────────────────────────────────────────────── -->
+  <div id="statusbar">
+    <div id="waveform-container">
+      <canvas id="waveform" width="200" height="40"></canvas>
+    </div>
+    <div id="status-label">IDLE</div>
+    <div id="status-dot" class="dot idle"></div>
+  </div>
+
+  <!-- ── Main content ──────────────────────────────────────────────────── -->
+  <main id="content">
+
+    <!-- Left panel: conversation transcript -->
+    <section id="panel-chat">
+      <div id="chat-header">
+        <h2>Conversation</h2>
+        <button id="btn-clear">Clear</button>
+      </div>
+      <div id="messages"></div>
+
+      <!-- Text input override -->
+      <div id="input-bar">
+        <input id="text-input" type="text" placeholder="Type a command…" autocomplete="off" />
+        <button id="btn-send">Send</button>
+      </div>
+    </section>
+
+    <!-- Right panel: browser iframe -->
+    <section id="panel-browser">
+      <div id="browser-header">
+        <h2>Browser</h2>
+        <input id="url-bar" type="text" placeholder="https://" />
+        <button id="btn-go">Go</button>
+      </div>
+      <div id="webview-container">
+        <webview id="webview" src="about:blank" allowpopups></webview>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Tool-call activity feed ───────────────────────────────────────── -->
+  <aside id="activity-feed">
+    <h3>Activity</h3>
+    <ul id="activity-list"></ul>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>

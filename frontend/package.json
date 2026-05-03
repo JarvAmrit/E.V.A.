@@ -1,0 +1,17 @@
+{
+  "name": "eva-frontend",
+  "version": "1.0.0",
+  "description": "E.V.A. – Enhanced Voice Assistant HUD",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --inspect"
+  },
+  "keywords": [],
+  "author": "E.V.A. Project",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "41.0.0"
+  },
+  "devDependencies": {}
+}
